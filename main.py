@@ -2,9 +2,10 @@ from tkinter import *
 import pandas
 from random import choice
 
-tim = ''
+tim = None
 frame = pandas.read_csv('./data/french_words.csv')
 words = frame.to_dict(orient='records')
+BACKGROUND_COLOR = "#B1DDC6"
 
 
 def reset():
@@ -20,16 +21,16 @@ def flip_card(dic):
 
 
 def gen_word():
-    reset()
     global tim
+    if tim is not None:
+        window.after_cancel(tim)
+        reset()
     """Generates a word to display on the canvas"""
     new_key = choice(words)
     canvas.itemconfig(title, text='French')
     canvas.itemconfig(word, text=new_key['French'])
     tim = window.after(3000, flip_card, new_key)
 
-
-BACKGROUND_COLOR = "#B1DDC6"
 
 window = Tk()
 window.title("Flashy")
