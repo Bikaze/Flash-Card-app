@@ -21,10 +21,6 @@ The main components of the code include:
 - Learning buttons to indicate whether the user knew the translation or not.
 - Visual elements such as buttons and background images to enhance the user experience.
 
-The code provides a simple and interactive way for users to learn and practice French vocabulary with a dynamic learning experience.
-
-## Resources
-- [Flashcard Dynamic Array - Quizlet][4]
-- [Adding Dynamic Content to Flashcards App - YouTube][5]
-
-Feel free to explore the provided resources for additional insights into dynamic arrays and flash card applications.
+- The code provides a simple and interactive way for users to learn and practice French vocabulary with a dynamic learning experience.
+- To extend the functionality of this flash card app, users can modify the code to add new features or customize the existing ones.<br><br>For example:<br>
+&emsp; users can add new buttons to the interface to provide additional functionality, such as a "Hint" button that displays a picture or a sentence to help users remember the translation.<br>&emsp;Users can also modify the code to load words from a different CSV file or database, or to support different languages.<br>&emsp;The possibilities are endless, and users can use this code as a starting point to build their own flash card apps for different purposes and domains.
