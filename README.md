@@ -19,6 +19,7 @@ The main components of the code include:
 - Displaying the French word on the canvas.
 - Automatically flipping the card every 3 seconds to reveal the English translation.
 - Learning buttons to indicate whether the user knew the translation or not.
+- Saving words you did not know into a new file (saving progress in words_to_learn.csv) 
 - Visual elements such as buttons and background images to enhance the user experience.
 
 - The code provides a simple and interactive way for users to learn and practice French vocabulary with a dynamic learning experience.

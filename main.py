@@ -2,10 +2,19 @@ from tkinter import *
 import pandas
 from random import choice
 
-tim = None
-frame = pandas.read_csv('./data/french_words.csv')
-words = frame.to_dict(orient='records')
+
 BACKGROUND_COLOR = "#B1DDC6"
+new_key = {}
+tim = None
+words = None
+
+try:
+    frame = pandas.read_csv('./data/words_to_learn.csv')
+except FileNotFoundError:
+    frame = pandas.read_csv('./data/french_words.csv')
+    words = frame.to_dict(orient='records')
+else:
+    words = frame.to_dict(orient='records')
 
 
 def reset():
@@ -21,7 +30,7 @@ def flip_card(dic):
 
 
 def gen_word():
-    global tim
+    global tim, new_key
     if tim is not None:
         window.after_cancel(tim)
         reset()
@@ -30,6 +39,14 @@ def gen_word():
     canvas.itemconfig(title, text='French')
     canvas.itemconfig(word, text=new_key['French'])
     tim = window.after(3000, flip_card, new_key)
+
+
+def is_known():
+    global new_key
+    words.remove(new_key)
+    data = pandas.DataFrame(words)
+    data.to_csv('./data/words_to_learn.csv', index=False)
+    gen_word()
 
 
 window = Tk()
@@ -49,7 +66,7 @@ w_bt = Button(image=wrong, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidt
 w_bt.grid(column=0, row=1)
 
 right = PhotoImage(file='./images/right.png')
-r_bt = Button(image=right, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=gen_word)
+r_bt = Button(image=right, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=is_known)
 r_bt.grid(column=1, row=1)
 
 gen_word()
