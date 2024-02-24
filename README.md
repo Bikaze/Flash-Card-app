@@ -28,5 +28,5 @@ The main components of the code include:
 
 ## Acknowledgement
 
-#100 Days of Code (Udemy's python course by Dr. Angela Yu)
+#100 Days of Code (Udemy's python course by Dr. Angela Yu).<br>
 Here is the link to the course -> <a href="https://www.udemy.com/course/100-days-of-code/">link!</a>
